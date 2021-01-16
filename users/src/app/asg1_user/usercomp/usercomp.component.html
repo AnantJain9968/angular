@@ -1,0 +1,23 @@
+<div class="columns"><div class="panel-block" *ngIf="users.length>0;else noUsers">
+    <table class="table is-fullwidth">
+        <thead>
+       <th>Name</th>
+       <th>Username</th>
+       <th>Email </th>
+        </thead>
+        <tbody>
+    <tr *ngFor="let user of users; index as i">
+        <td>{{user.name}}</td>
+        <td>{{user.username}}</td>
+        <td appHighlight>{{user.email}}</td>
+        <td>  <button class="button is-danger is-small"  (click)="handleDelete(i)">X</button></td>
+    </tr>
+        </tbody>
+    </table>
+</div>
+</div>
+<ng-template #noUsers>
+    <div class="columns">
+     <p class="no-users tag"> No Users Available</p>
+    </div>
+</ng-template>
